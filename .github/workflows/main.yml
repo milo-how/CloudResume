@@ -23,7 +23,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: <arn:aws:iam::881490118410:role/GitHubActions-CloudResume> #change to reflect your IAM role’s ARN
+          role-to-assume: arn:aws:iam::881490118410:role/GitHubActions-CloudResume #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
       # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
