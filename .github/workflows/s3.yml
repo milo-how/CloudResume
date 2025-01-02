@@ -1,6 +1,6 @@
 # Sample workflow to access AWS resources when workflow is tied to branch
 # The workflow Creates static website using aws s3
-name: AWS example workflow
+name: AWS S3 Upload
 on:
   push
 env:
@@ -23,6 +23,9 @@ jobs:
           role-session-name: samplerolesession
           aws-region: ${{ env.AWS_REGION }}
       # Upload a file to AWS s3
-      - name: Copy index.html to s3
+      - name: Copy index.html to s3 #updates changes to index file
         run: |
           aws s3 cp Howard-CloudResume/index.html s3://${{ env.BUCKET_NAME }}/
+      - name: Copy generic.html to s3 #updates changes to generic file
+        run: |
+          aws s3 cp Howard-CloudResume/generic.html s3://${{ env.BUCKET_NAME }}/
